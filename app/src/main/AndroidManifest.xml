@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Cdshome"></activity>
+        <activity android:name=".Presihome"></activity>
+        <activity android:name=".Acceptingpresi" />
+        <activity android:name=".Cdshome" />
         <activity android:name=".Memregi" />
         <activity android:name=".Cdslog" />
         <activity android:name=".Enterlog" />

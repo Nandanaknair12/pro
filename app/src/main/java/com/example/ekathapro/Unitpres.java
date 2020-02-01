@@ -2,11 +2,13 @@ package com.example.ekathapro;
 
 public class Unitpres {
     public  String uno,una,upl,uwa,umo,uus,upa;
+    Boolean status;
 
     public Unitpres() {
+        status=false;
     }
 
-    public Unitpres(String uno, String una, String upl, String uwa, String umo, String uus, String upa) {
+    public Unitpres(String uno, String una, String upl, String uwa, String umo, String uus, String upa, Boolean status) {
         this.uno = uno;
         this.una = una;
         this.upl = upl;
@@ -14,7 +16,7 @@ public class Unitpres {
         this.umo = umo;
         this.uus = uus;
         this.upa = upa;
-
+        this.status = status;
     }
 
     public String getUno() {
@@ -73,4 +75,11 @@ public class Unitpres {
         this.upa = upa;
     }
 
+    public Boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
 }
