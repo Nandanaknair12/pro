@@ -9,7 +9,8 @@
         android:roundIcon="@drawable/oval"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Presihome"></activity>
+        <activity android:name=".memlogged"></activity>
+        <activity android:name=".Presihome" />
         <activity android:name=".Acceptingpresi" />
         <activity android:name=".Cdshome" />
         <activity android:name=".Memregi" />

@@ -1,5 +1,6 @@
 package com.example.ekathapro;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,11 +8,21 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class Memlog extends AppCompatActivity {
     EditText e1,e2;
     Button b1,b2;
-
+    String userna,passna;
+    Memb mem;
+    DatabaseReference refer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +32,54 @@ public class Memlog extends AppCompatActivity {
         e2=(EditText)findViewById(R.id.mpass);
         b1=(Button)findViewById(R.id.mbtlogin);
         b2=(Button)findViewById(R.id.mregi);
+
+        mem=new Memb();
+
+        refer= FirebaseDatabase.getInstance().getReference().child("Memb");
+
+        b1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                userna=e1.getText().toString().trim();
+                passna=e2.getText().toString().trim();
+                if(userna.isEmpty())
+                {
+                    e1.setError("enter username");
+                    e1.requestFocus();
+                }
+                else if(passna.isEmpty())
+                {
+                    e2.setError("enter password");
+                    e2.requestFocus();
+                }
+                else
+                {
+                    Query query=refer.orderByChild("mname").equalTo(userna);
+                    query.addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            for(DataSnapshot snapshot:dataSnapshot.getChildren())
+                            {
+                                mem=snapshot.getValue(Memb.class);
+                                String pass=mem.mpassw;
+                                if(pass.equals(passna)) {
+                                    Toast.makeText(getApplicationContext(), "login success", Toast.LENGTH_SHORT).show();
+                                    Intent inte = new Intent(getApplicationContext(), memlogged.class);
+                                    startActivity(inte);
+
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+                }
+            }
+        });
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
