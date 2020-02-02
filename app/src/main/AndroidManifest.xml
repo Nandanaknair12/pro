@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/img6"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/oval"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Presihome"></activity>
@@ -14,7 +14,6 @@
         <activity android:name=".Cdshome" />
         <activity android:name=".Memregi" />
         <activity android:name=".Cdslog" />
-        <activity android:name=".Enterlog" />
         <activity android:name=".Memlog" />
         <activity android:name=".Unitpresilog" />
         <activity android:name=".Unitpresregi" />

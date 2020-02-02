@@ -15,7 +15,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_height="150dp"
                 android:layout_width="219dp"
-                android:src="@drawable/img1"/>
+                android:src="@drawable/imgg"/>
 
         </TableLayout>
         <TableLayout android:layout_height="wrap_content"

@@ -94,23 +94,21 @@ public class Memregi extends AppCompatActivity {
                     memb.setMuser(mus);
                     memb.setMpassw(mpa);
 
-
-                    mn1 = memb.getMname();
-                    mp = memb.getMplace();
-                    mw = memb.getMward();
-                    mm = memb.getMmobile();
-                    mu = memb.getMuser();
-                    mp1 = memb.getMpassw();
                     databaseReference.push().setValue(memb).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            Toast.makeText(getApplicationContext(),"succes"+mn1+mp+mw+mm+mu+mp1,Toast.LENGTH_SHORT).show();
+
+                            Toast.makeText(getApplicationContext(),"succesfully registered",Toast.LENGTH_SHORT).show();
+
                             e1.setText("");
                             e2.setText("");
                             e4.setText("");
                             e5.setText("");
                             e6.setText("");
                             e7.setText("");
+
+                            Intent ob=new Intent(getApplicationContext(),Memlog.class);
+                            startActivity(ob);
                         }
                     });
                 }
@@ -123,7 +121,6 @@ public class Memregi extends AppCompatActivity {
                 startActivity(ob);
             }
         });
-
 
     }
 }
