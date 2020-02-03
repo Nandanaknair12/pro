@@ -98,7 +98,7 @@ public class Memregi extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
-                            Toast.makeText(getApplicationContext(),"succesfully registered",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"Successfully registered Wait for the approval",Toast.LENGTH_SHORT).show();
 
                             e1.setText("");
                             e2.setText("");

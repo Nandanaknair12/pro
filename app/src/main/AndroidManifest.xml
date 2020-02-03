@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ekathapro">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/img6"
@@ -9,7 +11,9 @@
         android:roundIcon="@drawable/oval"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".memlogged"></activity>
+        <activity android:name=".requestloan"></activity>
+        <activity android:name=".memberlist" />
+        <activity android:name=".memlogged" />
         <activity android:name=".Presihome" />
         <activity android:name=".Acceptingpresi" />
         <activity android:name=".Cdshome" />

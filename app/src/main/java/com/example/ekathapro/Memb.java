@@ -3,7 +3,10 @@ package com.example.ekathapro;
 public class Memb {
     public String mname,mplace,mward,mmobile,muser,mpassw;
 
-    public Memb() {
+
+    public Memb()
+    {
+
     }
 
     public Memb(String mname, String mplace, String mward, String mmobile, String muser, String mpassw) {

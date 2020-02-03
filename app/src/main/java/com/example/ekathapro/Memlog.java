@@ -35,7 +35,7 @@ public class Memlog extends AppCompatActivity {
 
         mem=new Memb();
 
-        refer= FirebaseDatabase.getInstance().getReference().child("Memb");
+        refer= FirebaseDatabase.getInstance().getReference().child("Member");
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +55,7 @@ public class Memlog extends AppCompatActivity {
                 }
                 else
                 {
-                    Query query=refer.orderByChild("mname").equalTo(userna);
+                    Query query=refer.orderByChild("muser").equalTo(userna);
                     query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -68,6 +68,10 @@ public class Memlog extends AppCompatActivity {
                                     Intent inte = new Intent(getApplicationContext(), memlogged.class);
                                     startActivity(inte);
 
+                                }
+                                else
+                                {
+                                    Toast.makeText(getApplicationContext(), "Incorrect password or username", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         }
