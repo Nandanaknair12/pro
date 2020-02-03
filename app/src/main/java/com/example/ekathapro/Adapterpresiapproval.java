@@ -61,7 +61,7 @@ public class Adapterpresiapproval extends RecyclerView.Adapter<Adapterpresiappro
             @Override
             public void onClick(View v)
             {
-                Query query=reference.orderByChild("shopID").equalTo(unitpres.get(position).getUno());
+                Query query=reference.orderByChild("uno").equalTo(unitpres.get(position).getUno());
                 query.addListenerForSingleValueEvent(new ValueEventListener()
                 {
                     @Override
@@ -103,7 +103,6 @@ public class Adapterpresiapproval extends RecyclerView.Adapter<Adapterpresiappro
             t4=(TextView)presiView.findViewById(R.id.plce);
             t5=(TextView)presiView.findViewById(R.id.ward);
             t6=(TextView)presiView.findViewById(R.id.mob);
-
             button=(Button)presiView.findViewById(R.id.appro);
 
         }

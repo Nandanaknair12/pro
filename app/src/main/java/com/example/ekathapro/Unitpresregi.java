@@ -113,7 +113,9 @@ public class Unitpresregi extends AppCompatActivity {
                     databaseReference.push().setValue(unitpres).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
-                            Toast.makeText(getApplicationContext(),"succes"+n+n1+p+w+m+u+p1+p2,Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getApplicationContext(),"success"+n+n1+p+w+m+u+p1+p2,Toast.LENGTH_SHORT).show();
+                            Intent ob=new Intent(getApplicationContext(),Presiiafterregi.class);
+                            startActivity(ob);
                             e1.setText("");
                             e2.setText("");
                             e3.setText("");

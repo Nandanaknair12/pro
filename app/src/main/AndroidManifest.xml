@@ -11,8 +11,8 @@
         android:roundIcon="@drawable/oval"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".requestloan"></activity>
-        <activity android:name=".memberlist" />
+        <activity android:name=".Presiiafterregi"></activity>
+        <activity android:name=".requestloan" />
         <activity android:name=".memlogged" />
         <activity android:name=".Presihome" />
         <activity android:name=".Acceptingpresi" />
