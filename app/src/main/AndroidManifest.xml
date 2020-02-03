@@ -11,7 +11,9 @@
         android:roundIcon="@drawable/oval"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Presiiafterregi"></activity>
+        <activity android:name=".viewthrift"></activity>
+        <activity android:name=".viewattendance" />
+        <activity android:name=".Presiiafterregi" />
         <activity android:name=".requestloan" />
         <activity android:name=".memlogged" />
         <activity android:name=".Presihome" />

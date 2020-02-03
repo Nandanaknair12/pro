@@ -30,8 +30,6 @@ public class memlogged extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inten=new Intent(getApplicationContext(),memberlist.class);
-                startActivity(inten);
             }
         });
         b2.setOnClickListener(new View.OnClickListener() {
@@ -39,6 +37,20 @@ public class memlogged extends AppCompatActivity {
             public void onClick(View v) {
                 Intent inten=new Intent(getApplicationContext(),requestloan.class);
                 startActivity(inten);
+            }
+        });
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inten1=new Intent(getApplicationContext(),viewattendance.class);
+                startActivity(inten1);
+            }
+        });
+        b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inten2=new Intent(getApplicationContext(),viewthrift.class);
+                startActivity(inten2);
             }
         });
     }
