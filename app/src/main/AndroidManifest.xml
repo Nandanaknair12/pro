@@ -11,7 +11,13 @@
         android:roundIcon="@drawable/oval"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".viewthrift"></activity>
+        <activity android:name=".logout"></activity>
+        <activity android:name=".privacy" />
+        <activity android:name=".complaints" />
+        <activity android:name=".paymentinfo" />
+        <activity android:name=".loandetails" />
+        <activity android:name=".viewexpense" />
+        <activity android:name=".viewthrift" />
         <activity android:name=".viewattendance" />
         <activity android:name=".Presiiafterregi" />
         <activity android:name=".requestloan" />

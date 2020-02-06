@@ -42,15 +42,57 @@ public class memlogged extends AppCompatActivity {
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inten1=new Intent(getApplicationContext(),viewattendance.class);
-                startActivity(inten1);
+                Intent inten=new Intent(getApplicationContext(),viewattendance.class);
+                startActivity(inten);
             }
         });
         b4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent inten2=new Intent(getApplicationContext(),viewthrift.class);
-                startActivity(inten2);
+                Intent inten=new Intent(getApplicationContext(),viewthrift.class);
+                startActivity(inten);
+            }
+        });
+        b5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inten=new Intent(getApplicationContext(),viewexpense.class);
+                startActivity(inten);
+            }
+        });
+        b6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inten=new Intent(getApplicationContext(),loandetails.class);
+                startActivity(inten);
+            }
+        });
+        b7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inten=new Intent(getApplicationContext(),paymentinfo.class);
+                startActivity(inten);
+            }
+        });
+        b8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inten=new Intent(getApplicationContext(),complaints.class);
+                startActivity(inten);
+            }
+        });
+        b9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inten=new Intent(getApplicationContext(),privacy.class);
+                startActivity(inten);
+            }
+        });
+        b10.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inten=new Intent(getApplicationContext(),logout.class);
+                startActivity(inten);
             }
         });
     }
