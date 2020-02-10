@@ -1,140 +1,140 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Cdshome">
+    android:orientation="vertical"
+    android:gravity="center"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="218dp"
-        android:layout_height="49dp"
-        android:background="@drawable/oval"
-        android:text="monthlly fee and fine"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.419"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.335" />
+    <ScrollView android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_marginTop="30dp"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="217dp"
-        android:layout_height="43dp"
-        android:background="@drawable/oval"
-        android:text="Logout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.469"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.829" />
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="225dp"
-        android:layout_height="48dp"
-        android:background="@drawable/oval"
-        android:text="Attendence"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.381"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.152" />
+            <LinearLayout android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <Button
-        android:id="@+id/presireq"
-        android:layout_width="228dp"
-        android:layout_height="49dp"
-        android:background="@drawable/oval"
-        android:text="Member Requests"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.387"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.057" />
+                <TableLayout android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:gravity="center_vertical"
+                    android:stretchColumns="10">
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="213dp"
-        android:layout_height="42dp"
-        android:background="@drawable/oval"
-        android:text="change password"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.459"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.753" />
+                    <TableRow>
 
-    <Button
-        android:id="@+id/button9"
+                        <Button android:layout_height="match_parent"
+                            android:layout_width="130dp"
+                            android:text="MEMBER  request"
+                            android:id="@+id/memberrequest"
+                            android:textColor="#000000"
+                            android:background="#86F58A"/>
 
-        android:layout_width="226dp"
-        android:layout_height="47dp"
-        android:background="@drawable/oval"
-        android:text="thrift"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.378"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.232" />
+                        <Button android:layout_height="match_parent"
+                            android:layout_width="130dp"
+                            android:text="attendance"
+                            android:id="@+id/requestloan"
+                            android:textColor="#000000"
+                            android:background="#fff"/>
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="218dp"
-        android:layout_height="49dp"
-        android:background="@drawable/oval"
-        android:text="expense"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.445"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.497" />
+                        <Button android:layout_height="match_parent"
+                            android:layout_width="130dp"
+                            android:text="thrift"
+                            android:id="@+id/viewattendance"
+                            android:textColor="#000000"
+                            android:background="#fff"/>
 
-    <Button
-        android:id="@+id/button7"
-        android:layout_width="218dp"
-        android:layout_height="49dp"
-        android:background="@drawable/oval"
-        android:text="monthly report"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.445"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.568" />
+                        <Button android:layout_height="match_parent"
+                            android:layout_width="130dp"
+                            android:text="loan request"
+                            android:id="@+id/viewthrift"
+                            android:textColor="#000000"
+                            android:background="#fff"/>
 
-    <Button
-        android:id="@+id/button10"
-        android:layout_width="218dp"
-        android:layout_height="49dp"
-        android:background="@drawable/oval"
-        android:text="complaint and suggestions"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.674" />
+                        <Button android:layout_height="match_parent"
+                            android:layout_width="130dp"
+                            android:text="borrowlist"
+                            android:id="@+id/viewexpense"
+                            android:textColor="#000000"
+                            android:background="#fff"/>
 
-    <Button
-        android:id="@+id/button4"
-        android:layout_width="218dp"
-        android:layout_height="49dp"
-        android:background="@drawable/oval"
-        android:text="loan"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.445"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.425" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+                        <Button android:layout_height="match_parent"
+                            android:layout_width="130dp"
+                            android:text="expense"
+                            android:id="@+id/loandetails"
+                            android:textColor="#000000"
+                            android:background="#fff"/>
+
+                        <Button android:layout_height="match_parent"
+                            android:layout_width="130dp"
+                            android:text="monthly report"
+                            android:id="@+id/paymentinfo"
+                            android:textColor="#000000"
+                            android:background="#fff"/>
+
+                        <Button android:layout_height="match_parent"
+                            android:layout_width="130dp"
+                            android:text="COMPLAINTS"
+                            android:id="@+id/complaints"
+                            android:textColor="#000000"
+                            android:background="#fff"/>
+
+                        <Button android:layout_height="match_parent"
+                            android:layout_width="130dp"
+                            android:text="PRIVACY"
+                            android:id="@+id/privacy"
+                            android:textColor="#000000"
+                            android:background="#fff"/>
+
+
+                    </TableRow>
+
+                </TableLayout>
+
+            </LinearLayout>
+        </HorizontalScrollView>
+    </ScrollView>
+
+    <LinearLayout android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:gravity="top"
+        xmlns:android="http://schemas.android.com/apk/res/android">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="top"
+            android:orientation="horizontal"
+            android:layout_margin="20dp"
+            android:stretchColumns="1">
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="30dp"
+                android:text="Member  Details"
+                android:textColor="#000000"
+                android:textSize="16dp"/>
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="40dp"
+                android:text="view"
+                android:background="@drawable/oval"
+                android:id="@+id/view"/>
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

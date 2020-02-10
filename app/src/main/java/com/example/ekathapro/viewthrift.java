@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class viewthrift extends AppCompatActivity {
 
-    Button b1,b2,b3,b4,b5,b6,b7,b8,b9,b10;
+    Button b1,b2,b3,b4,b5,b6,b7,b8,b9;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,6 @@ public class viewthrift extends AppCompatActivity {
         b7=(Button)findViewById(R.id.paymentinfo);
         b8=(Button)findViewById(R.id.complaints);
         b9=(Button)findViewById(R.id.privacy);
-        b10=(Button)findViewById(R.id.logout);
 
         b4.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,13 +84,6 @@ public class viewthrift extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent inten=new Intent(getApplicationContext(),privacy.class);
-                startActivity(inten);
-            }
-        });
-        b10.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent inten=new Intent(getApplicationContext(),logout.class);
                 startActivity(inten);
             }
         });

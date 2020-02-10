@@ -91,13 +91,6 @@
                             android:textColor="#000000"
                             android:background="#fff"/>
 
-                        <Button android:layout_height="match_parent"
-                            android:layout_width="130dp"
-                            android:text="LOGOUT"
-                            android:id="@+id/logout"
-                            android:textColor="#000000"
-                            android:background="#fff"/>
-
 
                     </TableRow>
 
@@ -150,7 +143,7 @@
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:textSize="15dp"
-                android:text="search attendance"
+                android:text="search  attendance"
                 android:layout_marginLeft="100dp"/>
 
 
