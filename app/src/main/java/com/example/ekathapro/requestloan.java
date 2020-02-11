@@ -35,6 +35,8 @@ public class requestloan extends AppCompatActivity {
         b8=(Button)findViewById(R.id.complaints);
         b9=(Button)findViewById(R.id.privacy);
 
+        reqloan=(Button)findViewById(R.id.loanreg);
+
         reqloan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,7 +49,7 @@ public class requestloan extends AppCompatActivity {
                     date.setError("enter date");
                     date.requestFocus();
                 }
-                if(sn.isEmpty())
+                else if(sn.isEmpty())
                 {
                     name.setError("enter name");
                     name.requestFocus();
