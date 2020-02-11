@@ -1,49 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
     android:background="@drawable/img2"
-    tools:context=".Cdshome">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <Button
         android:id="@+id/presireq"
         android:layout_width="228dp"
-        android:layout_height="49dp"
-        android:background="@drawable/plainoval"
-        android:text="Unit President Requests"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.397"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.121" />
+        android:layout_height="55dp"
+        android:textSize="15dp"
+        android:background="@drawable/greenoval"
+        android:text="Unit President Requests" />
 
     <Button
-        android:id="@+id/button9"
-
-        android:layout_width="226dp"
-        android:layout_height="47dp"
-        android:background="@drawable/plainoval"
-        android:text="View Unit Report"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.405"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.311" />
+        android:id="@+id/unitexpense"
+        android:layout_width="228dp"
+        android:layout_height="55dp"
+        android:textSize="15dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/greenoval"
+        android:text="unit  expenses" />
 
     <Button
-        android:id="@+id/button8"
-        android:layout_width="225dp"
-        android:layout_height="49dp"
-        android:background="@drawable/plainoval"
-        android:text="Logout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.408"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/unitreport"
+        android:layout_width="228dp"
+        android:layout_height="55dp"
+        android:textSize="15dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/greenoval"
+        android:text="unit  report" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/logout3"
+        android:layout_width="228dp"
+        android:layout_height="55dp"
+        android:textSize="15dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/greenoval"
+        android:text="Logout" />
+
+</LinearLayout>
