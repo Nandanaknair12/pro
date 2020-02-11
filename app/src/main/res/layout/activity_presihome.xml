@@ -107,31 +107,6 @@
         android:gravity="top"
         xmlns:android="http://schemas.android.com/apk/res/android">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="top"
-            android:orientation="horizontal"
-            android:layout_margin="20dp"
-            android:stretchColumns="1">
-
-            <TextView
-                android:layout_width="200dp"
-                android:layout_height="30dp"
-                android:text="Member  Details"
-                android:textColor="#000000"
-                android:textSize="16dp"/>
-
-            <Button
-                android:layout_width="100dp"
-                android:layout_height="40dp"
-                android:text="view"
-                android:background="@drawable/oval"
-                android:id="@+id/view"/>
-
-
-
-        </LinearLayout>
 
     </LinearLayout>
 

@@ -34,7 +34,7 @@ public class privacy extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                SharedPreferences.Editor editor=getSharedPreferences("login",MODE_PRIVATE).edit();
+                SharedPreferences.Editor editor=getSharedPreferences("Memlogin",MODE_PRIVATE).edit();
                 editor.clear();
                 editor.commit();
 

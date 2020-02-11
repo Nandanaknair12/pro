@@ -13,8 +13,12 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class Memregi extends AppCompatActivity {
     EditText e1,e2,e4,e5,e6,e7;
@@ -23,7 +27,7 @@ public class Memregi extends AppCompatActivity {
     Memb memb;
 
     String mna,mpl,mwa,mmo,mus,mpa,mre,mn1,mp,mw,mm,mu,mp1;
-    DatabaseReference databaseReference;
+    DatabaseReference databaseReference,reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,23 +98,50 @@ public class Memregi extends AppCompatActivity {
                     memb.setMuser(mus);
                     memb.setMpassw(mpa);
 
-                    databaseReference.push().setValue(memb).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                    final Query query=databaseReference.orderByChild("mname").equalTo(mus);
+                    query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
-                        public void onComplete(@NonNull Task<Void> task) {
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+                        {
+                            if (dataSnapshot.exists())
+                            {
+                                e5.setError("user already exist");
+                                e5.requestFocus();
+                            }
+                            else
+                            {
+                                databaseReference=FirebaseDatabase.getInstance().getReference().child("Member").child(mus);
+                                databaseReference.setValue(memb).addOnCompleteListener(new OnCompleteListener<Void>()
+                                {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task)
+                                    {
 
-                            Toast.makeText(getApplicationContext(),"Successfully registered Wait for the approval",Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(getApplicationContext(),"Successfully registered Wait for the approval",Toast.LENGTH_SHORT).show();
 
-                            e1.setText("");
-                            e2.setText("");
-                            e4.setText("");
-                            e5.setText("");
-                            e6.setText("");
-                            e7.setText("");
+                                        e1.setText("");
+                                        e2.setText("");
+                                        e4.setText("");
+                                        e5.setText("");
+                                        e6.setText("");
+                                        e7.setText("");
 
-                            Intent ob=new Intent(getApplicationContext(),Memlog.class);
-                            startActivity(ob);
+                                        Intent ob=new Intent(getApplicationContext(),Memlog.class);
+                                        startActivity(ob);
+                                    }
+                                });
+                            }
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError)
+                        {
+
                         }
                     });
+
                 }
             }
         });

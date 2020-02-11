@@ -17,6 +17,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SharedPreferences sharedPreferences=getSharedPreferences("Memlogin",MODE_PRIVATE);
+        String string=sharedPreferences.getString("member",null);
+        if(string!=null) {
+            Intent inton = new Intent(getApplicationContext(), memlogged.class);
+            startActivity(inton);
+        }
+
         b1=(Button)findViewById(R.id.unitpres);
         b2=(Button)findViewById(R.id.mem);
         b4=(Button)findViewById(R.id.cds);

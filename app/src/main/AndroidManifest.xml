@@ -11,6 +11,7 @@
         android:roundIcon="@drawable/oval"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Acceptingmem"></activity>
         <activity android:name=".privacy" />
         <activity android:name=".complaints" />
         <activity android:name=".paymentinfo" />

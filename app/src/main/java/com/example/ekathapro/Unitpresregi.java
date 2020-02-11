@@ -12,9 +12,14 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 public class Unitpresregi extends AppCompatActivity {
     EditText e1,e2,e3,e5,e6,e7,e8;
@@ -22,7 +27,7 @@ public class Unitpresregi extends AppCompatActivity {
     Spinner e4;
     Unitpres unitpres;
     String no,na,pl,wa,mo,us,pa,re,n,n1,p,w,m,u,p1,p2;
-    DatabaseReference databaseReference;
+    DatabaseReference databaseReference,ref;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -94,22 +99,56 @@ public class Unitpresregi extends AppCompatActivity {
                     e8.requestFocus();
                 }
                 else {
-                    unitpres.setUno(no);
-                    unitpres.setUna(na);
-                    unitpres.setUpl(pl);
-                    unitpres.setUwa(wa);
-                    unitpres.setUmo(mo);
-                    unitpres.setUus(us);
-                    unitpres.setUpa(pa);
+                        final Query query=databaseReference.orderByChild("uno").equalTo(no);
+                        query.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                ref=databaseReference.orderByChild("uno").equalTo(no).getRef();
 
-                    n=unitpres.getUno();
-                    n1=unitpres.getUna();
-                    p=unitpres.getUpl();
-                    w=unitpres.getUwa();
-                    m=unitpres.getUno();
-                    u=unitpres.getUmo();
-                    p1=unitpres.getUus();
-                    p2=unitpres.getUpa();
+                                if (dataSnapshot.exists())
+                                {
+                                    e1.setError("unit already Registered Try Sign in");
+                                }
+                                else
+                                {
+                                    unitpres.setUno(no);
+                                    unitpres.setUna(na);
+                                    unitpres.setUpl(pl);
+                                    unitpres.setUwa(wa);
+                                    unitpres.setUmo(mo);
+                                    unitpres.setUus(us);
+                                    unitpres.setUpa(pa);
+
+                                    n=unitpres.getUno();
+                                    n1=unitpres.getUna();
+                                    p=unitpres.getUpl();
+                                    w=unitpres.getUwa();
+                                    m=unitpres.getUno();
+                                    u=unitpres.getUmo();
+                                    p1=unitpres.getUus();
+                                    p2=unitpres.getUpa();
+
+                                    ref=FirebaseDatabase.getInstance().getReference().child("uno").child(no);
+                                    ref.setValue(unitpres).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+
+                                        }
+                                    });
+                                    {
+
+                                    }
+                                }
+                            }
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                            }
+                        });
+
+
+
                     databaseReference.push().setValue(unitpres).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {

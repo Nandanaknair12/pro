@@ -130,7 +130,7 @@
                         <TextView
                             android:layout_width="210dp"
                             android:layout_height="40dp"
-                            android:text="  Total  loan  amount"
+                            android:text="  Total  amount"
                             android:textSize="20dp"
                             android:textColor="#030303"/>
 
@@ -139,8 +139,10 @@
                             android:layout_height="40dp"
                             android:background="@drawable/textbox"
                             android:textSize="20dp"
+                            android:editable="false"
+                            android:id="@+id/totalamount"
                             android:textColor="#030303"
-                            android:layout_marginRight="50dp"/>
+                            android:layout_marginRight="100dp"/>
 
                     </TableRow>
 

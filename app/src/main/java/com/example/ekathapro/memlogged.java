@@ -28,6 +28,8 @@ public class memlogged extends AppCompatActivity {
     RecyclerView recyclerView;
     MemberAdapter adapter;
     ArrayList<Memb> list;
+    long backpress;
+    Toast backToast;
 
 
     @Override
@@ -39,16 +41,26 @@ public class memlogged extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list=new ArrayList<Memb>();
+        b1=(Button)findViewById(R.id.memberlist);
+        b2=(Button)findViewById(R.id.requestloan);
+        b3=(Button)findViewById(R.id.viewattendance);
+        b4=(Button)findViewById(R.id.viewthrift);
+        b5=(Button)findViewById(R.id.viewexpense);
+        b6=(Button)findViewById(R.id.loandetails);
+        b7=(Button)findViewById(R.id.paymentinfo);
+        b8=(Button)findViewById(R.id.complaints);
+        b9=(Button)findViewById(R.id.privacy);
 
         refee= FirebaseDatabase.getInstance().getReference().child("Member");
-        refee.addValueEventListener(new ValueEventListener() {
+        refee.addValueEventListener(new ValueEventListener()
+        {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot)
             {
                 for (DataSnapshot studentDatasnapshot : dataSnapshot.getChildren())
                 {
                     Memb memb = studentDatasnapshot.getValue(Memb.class);
-                        list.add(memb);
+                    list.add(memb);
                 }
                 adapter = new MemberAdapter(memlogged.this,list);
                 recyclerView.setAdapter(adapter);
@@ -60,17 +72,6 @@ public class memlogged extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"something wnt wrong",Toast.LENGTH_LONG).show();
             }
         });
-
-
-        b1=(Button)findViewById(R.id.memberlist);
-        b2=(Button)findViewById(R.id.requestloan);
-        b3=(Button)findViewById(R.id.viewattendance);
-        b4=(Button)findViewById(R.id.viewthrift);
-        b5=(Button)findViewById(R.id.viewexpense);
-        b6=(Button)findViewById(R.id.loandetails);
-        b7=(Button)findViewById(R.id.paymentinfo);
-        b8=(Button)findViewById(R.id.complaints);
-        b9=(Button)findViewById(R.id.privacy);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -130,11 +131,28 @@ public class memlogged extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                SharedPreferences.Editor editor=(SharedPreferences.Editor)getApplicationContext().getSharedPreferences("login", Context.MODE_PRIVATE);
-                editor.clear();
-                editor.commit();
-
+                Intent inten=new Intent(getApplicationContext(),privacy.class);
+                startActivity(inten);
             }
         });
+    }
+
+
+    @Override
+    public void onBackPressed()
+    {
+        if (backpress+2000>System.currentTimeMillis())
+        {
+            backToast.cancel();
+            moveTaskToBack(true);
+            android.os.Process.killProcess(android.os.Process.myPid());
+            System.exit(1);
+        }
+        else
+        {
+            backToast=Toast.makeText(getApplicationContext(), "Press again to exit", Toast.LENGTH_SHORT);
+            backToast.show();
+        }
+        backpress=System.currentTimeMillis();
     }
 }

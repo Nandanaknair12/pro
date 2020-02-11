@@ -75,8 +75,8 @@ public class MemberAdapter extends RecyclerView.Adapter<MemberAdapter.MemberView
 
         public MemberViewHolder(@NonNull View ownerView) {
             super(ownerView);
-            t1=(TextView) ownerView.findViewById(R.id.mobilenumber2);
-            t2=(TextView)ownerView.findViewById(R.id.mobilenumber2);
+            t1=(TextView) ownerView.findViewById(R.id.membername);
+            t2=(TextView)ownerView.findViewById(R.id.mobilenumber);
         }
     }
 }
