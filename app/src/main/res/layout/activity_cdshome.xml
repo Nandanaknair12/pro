@@ -14,6 +14,15 @@
         android:text="Unit President Requests" />
 
     <Button
+        android:id="@+id/unitmembers"
+        android:layout_width="228dp"
+        android:layout_height="55dp"
+        android:textSize="15dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/greenoval"
+        android:text="Unit members" />
+
+    <Button
         android:id="@+id/unitexpense"
         android:layout_width="228dp"
         android:layout_height="55dp"
