@@ -104,7 +104,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="80dp"
         android:stretchColumns="1">
 
         <TableRow>
@@ -120,6 +120,7 @@
                 android:layout_width="match_parent"
                 android:background="@drawable/textbox"
                 android:inputType="none"
+                android:editable="false"
                 android:id="@+id/loanamount2"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="120dp"/>
@@ -134,7 +135,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:stretchColumns="1">
 
         <TableRow>
@@ -151,6 +152,7 @@
                 android:id="@+id/timeperiod"
                 android:background="@drawable/textbox"
                 android:inputType="none"
+                android:editable="false"
                 android:layout_marginLeft="25dp"
                 android:layout_marginRight="120dp"/>
 
@@ -164,7 +166,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:stretchColumns="1">
 
         <TableRow>
@@ -181,6 +183,7 @@
                 android:id="@+id/loaninterest"
                 android:background="@drawable/textbox"
                 android:inputType="none"
+                android:editable="false"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="120dp"/>
 
@@ -189,31 +192,5 @@
 
 
     </TableLayout>
-
-    <TableLayout
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:gravity="center"
-        android:layout_marginTop="30dp"
-        android:stretchColumns="1">
-
-        <TableRow>
-
-            <Button
-                android:id="@+id/paymentinfo2"
-                android:background="@drawable/oval"
-                android:layout_width="200dp"
-                android:layout_height="50dp"
-                android:textSize="15dp"
-                android:text="Show  payment  info"
-                android:layout_marginLeft="100dp"/>
-
-
-        </TableRow>
-
-
-    </TableLayout>
-
-
 
 </LinearLayout>

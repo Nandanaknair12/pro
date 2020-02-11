@@ -167,6 +167,7 @@
                         <EditText android:layout_height="40dp"
                             android:layout_width="match_parent"
                             android:id="@+id/date"
+                            android:inputType="date"
                             android:layout_marginLeft="40dp"
                             android:layout_marginRight="180dp"/>
 

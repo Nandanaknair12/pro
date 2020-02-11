@@ -8,19 +8,23 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <TextView android:layout_height="40dp"
+        <EditText android:layout_height="40dp"
             android:layout_width="178dp"
             android:text="  Member  name"
             android:padding="6dp"
+            android:background="@drawable/textbox"
             android:textSize="20dp"
+            android:textAlignment="center"
+            android:editable="false"
             android:layout_marginLeft="20dp"
             android:id="@+id/membername"/>
 
-        <TextView android:layout_height="40dp"
+        <EditText android:layout_height="40dp"
             android:layout_width="180dp"
             android:text=" Mobile  number"
             android:textSize="20dp"
-            android:layout_marginLeft="20dp"
+            android:background="@drawable/textbox"
+            android:editable="false"
             android:id="@+id/mobilenumber"
             android:padding="6dp" />
 
