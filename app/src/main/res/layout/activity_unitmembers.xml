@@ -1,27 +1,27 @@
 <LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
+    android:gravity="top"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="top"
-        android:layout_marginBottom="300dp"
+        android:layout_height="40dp"
+        android:gravity="center"
+        android:layout_marginTop="150dp"
         android:stretchColumns="1">
 
         <TableRow>
 
-            <TextView android:layout_height="30dp"
-                android:layout_width="match_parent"
-                android:text="Date"
+            <TextView android:layout_height="40dp"
+                android:layout_width="120dp"
+                android:text="Unit  name"
                 android:textSize="20dp"
                 android:textColor="#030303"
                 android:layout_marginLeft="20dp"/>
 
             <EditText android:layout_height="40dp"
-                android:layout_width="match_parent"
+                android:layout_width="180dp"
                 android:id="@+id/cdsdate"
                 android:layout_marginLeft="40dp"
                 android:layout_marginRight="180dp"/>
@@ -32,11 +32,14 @@
 
     </TableLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
         android:gravity="center"
-        android:orientation="vertical">
+        android:layout_marginTop="30dp"
+        android:stretchColumns="1">
+
+        <TableRow>
 
             <Button
                 android:id="@+id/seemembers"
@@ -44,8 +47,12 @@
                 android:layout_width="200dp"
                 android:layout_height="50dp"
                 android:textSize="15dp"
-                android:text="see  members" />
+                android:text="see  members"
+                android:layout_marginLeft="100dp"/>
 
-    </LinearLayout>
 
+        </TableRow>
+
+
+    </TableLayout>
 </LinearLayout>
