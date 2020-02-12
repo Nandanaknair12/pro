@@ -1,21 +1,24 @@
 package com.example.ekathapro;
 
 public class Memb {
-    public String mname,mplace,mward,mmobile,muser,mpassw;
+    public String mname,mplace,mward,mmobile,muser,mpassw,munitnum;
+    boolean status;
 
 
     public Memb()
     {
-
+        status=false;
     }
 
-    public Memb(String mname, String mplace, String mward, String mmobile, String muser, String mpassw) {
+    public Memb(String mname, String mplace, String mward, String mmobile, String muser, String mpass, String munitnum, boolean status) {
         this.mname = mname;
         this.mplace = mplace;
         this.mward = mward;
         this.mmobile = mmobile;
         this.muser = muser;
-        this.mpassw = mpassw;
+        this.mpassw = mpass;
+        this.munitnum = munitnum;
+        this.status = status;
     }
 
     public String getMname() {
@@ -64,5 +67,21 @@ public class Memb {
 
     public void setMpassw(String mpassw) {
         this.mpassw = mpassw;
+    }
+
+    public String getMunitnum() {
+        return munitnum;
+    }
+
+    public void setMunitnum(String munitnum) {
+        this.munitnum = munitnum;
+    }
+
+    public boolean isStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
     }
 }

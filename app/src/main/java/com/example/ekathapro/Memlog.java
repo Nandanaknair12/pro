@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -21,7 +22,8 @@ import com.google.firebase.database.ValueEventListener;
 public class Memlog extends AppCompatActivity {
     EditText e1,e2;
     Button b1,b2;
-    String userna,passna;
+    String userna,passna,ward,unit;
+    Spinner s1,s2;
     Memb mem;
     DatabaseReference refer;
 
@@ -34,14 +36,17 @@ public class Memlog extends AppCompatActivity {
         b1=(Button)findViewById(R.id.mbtlogin);
         b2=(Button)findViewById(R.id.mregi);
 
-        mem=new Memb();
+        s1=(Spinner)findViewById(R.id.mward1);
+        s2=(Spinner)findViewById(R.id.munit1);
 
-        refer= FirebaseDatabase.getInstance().getReference().child("Member");
+        mem=new Memb();
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                ward=s1.getSelectedItem().toString().trim();
+                unit=s2.getSelectedItem().toString().trim();
                 userna=e1.getText().toString().trim();
                 passna=e2.getText().toString().trim();
                 if(userna.isEmpty())
@@ -56,6 +61,9 @@ public class Memlog extends AppCompatActivity {
                 }
                 else
                 {
+
+                    refer= FirebaseDatabase.getInstance().getReference().child(ward).child(unit).child("Member");
+
                     Query query=refer.orderByChild("muser").equalTo(userna);
                     query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override

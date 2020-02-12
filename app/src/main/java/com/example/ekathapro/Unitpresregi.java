@@ -22,9 +22,9 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class Unitpresregi extends AppCompatActivity {
-    EditText e1,e2,e3,e5,e6,e7,e8;
+    EditText e2,e3,e5,e6,e7,e8;
     Button b1,b2;
-    Spinner e4;
+    Spinner e4,e1;
     Unitpres unitpres;
     String no,na,pl,wa,mo,us,pa,re,n,n1,p,w,m,u,p1,p2;
     DatabaseReference databaseReference,ref;
@@ -33,7 +33,9 @@ public class Unitpresregi extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_unitpresregi);
-        e1=(EditText)findViewById(R.id.unitno);
+
+        e1=(Spinner) findViewById(R.id.unitnumb);
+
         e2=(EditText)findViewById(R.id.unitnam);
         e3=(EditText)findViewById(R.id.plce);
         e4=(Spinner)findViewById(R.id.ward);
@@ -43,14 +45,15 @@ public class Unitpresregi extends AppCompatActivity {
         e8=(EditText)findViewById(R.id.repass);
         b1=(Button)findViewById(R.id.regis);
         b2=(Button)findViewById(R.id.signin);
+
         unitpres=new Unitpres();
-        databaseReference=FirebaseDatabase.getInstance().getReference().child("President");
+
 
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                no=e1.getText().toString().trim();
+                no=e1.getSelectedItem().toString().trim();
                 na=e2.getText().toString().trim();
                 pl=e3.getText().toString().trim();
                 wa=e4.getSelectedItem().toString().trim();
@@ -59,12 +62,8 @@ public class Unitpresregi extends AppCompatActivity {
                 pa=e7.getText().toString().trim();
                 re=e8.getText().toString().trim();
 
-                if(no.equals(""))
-                {
-                    e1.setError("Unitnumber is required");
-                    e1.requestFocus();
-                }
-                else if(na.equals(""))
+
+                if(na.equals(""))
                 {
                     e2.setError("Unitname is required");
                     e2.requestFocus();
@@ -99,7 +98,9 @@ public class Unitpresregi extends AppCompatActivity {
                     e8.requestFocus();
                 }
                 else {
-                        final Query query=databaseReference.orderByChild("uno").equalTo(no);
+                    databaseReference=FirebaseDatabase.getInstance().getReference().child(wa).child(no);
+
+                    final Query query=databaseReference.orderByChild("uno").equalTo(no);
                         query.addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -107,7 +108,7 @@ public class Unitpresregi extends AppCompatActivity {
 
                                 if (dataSnapshot.exists())
                                 {
-                                    e1.setError("unit already Registered Try Sign in");
+                                    Toast.makeText(getApplicationContext(),"unit already Registered Try Sign in",Toast.LENGTH_LONG).show();
                                 }
                                 else
                                 {
@@ -128,16 +129,18 @@ public class Unitpresregi extends AppCompatActivity {
                                     p1=unitpres.getUus();
                                     p2=unitpres.getUpa();
 
-                                    ref=FirebaseDatabase.getInstance().getReference().child("uno").child(no);
-                                    ref.setValue(unitpres).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    databaseReference=FirebaseDatabase.getInstance().getReference().child(wa).child(no);
+
+                                   // ref=FirebaseDatabase.getInstance().getReference().child("uno").child(no);
+                                    databaseReference.setValue(unitpres).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
+                                        public void onComplete(@NonNull Task<Void> task)
+                                        {
+                                            Toast.makeText(getApplicationContext(), "Sucessfull", Toast.LENGTH_SHORT).show();
 
                                         }
                                     });
-                                    {
 
-                                    }
                                 }
                             }
 
@@ -149,13 +152,13 @@ public class Unitpresregi extends AppCompatActivity {
 
 
 
-                    databaseReference.push().setValue(unitpres).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    /*databaseReference.push().setValue(unitpres).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             Toast.makeText(getApplicationContext(),"success"+n+n1+p+w+m+u+p1+p2,Toast.LENGTH_SHORT).show();
                             Intent ob=new Intent(getApplicationContext(),Presiiafterregi.class);
                             startActivity(ob);
-                            e1.setText("");
+
                             e2.setText("");
                             e3.setText("");
                             e5.setText("");
@@ -163,7 +166,7 @@ public class Unitpresregi extends AppCompatActivity {
                             e7.setText("");
                             e8.setText("");
                         }
-                    });
+                    });*/
 
                 }
 

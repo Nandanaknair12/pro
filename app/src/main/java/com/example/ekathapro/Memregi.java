@@ -21,47 +21,43 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 public class Memregi extends AppCompatActivity {
-    EditText e1,e2,e4,e5,e6,e7;
+    EditText e2,e4,e5,e6,e7;
     Button b1,b2;
-    Spinner e3;
+    Spinner e3,e8;
     Memb memb;
-
-    String mna,mpl,mwa,mmo,mus,mpa,mre,mn1,mp,mw,mm,mu,mp1;
+    String mna,mpl,mwa,mmo,mus,mpa,mre,muninum;
     DatabaseReference databaseReference,reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memregi);
-        e1=(EditText)findViewById(R.id.munitnam);
+
         e2=(EditText)findViewById(R.id.mplce);
         e3=(Spinner)findViewById(R.id.mward);
         e4=(EditText)findViewById(R.id.mmob);
         e5=(EditText)findViewById(R.id.musername);
         e6=(EditText)findViewById(R.id.mpass);
         e7=(EditText)findViewById(R.id.mrepass);
+
+        e8=(Spinner)findViewById(R.id.munitnum);
+
         b1=(Button)findViewById(R.id.mregis);
         b2=(Button)findViewById(R.id.msignin);
         memb=new Memb();
-        databaseReference= FirebaseDatabase.getInstance().getReference().child("Member");
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mna=e1.getText().toString().trim();
+
                 mpl=e2.getText().toString().trim();
                 mwa=e3.getSelectedItem().toString().trim();
                 mmo=e4.getText().toString().trim();
                 mus=e5.getText().toString().trim();
                 mpa=e6.getText().toString().trim();
                 mre=e7.getText().toString().trim();
+                muninum=e8.getSelectedItem().toString().trim();
 
-
-                if(mna.equals(""))
-                {
-                    e1.setError("Unitname is required");
-                    e1.requestFocus();
-                }
-                else if(mpl.equals(""))
+                if(mpl.equals(""))
                 {
                     e2.setError("Place is required");
                     e2.requestFocus();
@@ -91,13 +87,15 @@ public class Memregi extends AppCompatActivity {
                     e7.requestFocus();
                 }
                 else {
-                    memb.setMname(mna);
+
                     memb.setMplace(mpl);
                     memb.setMward(mwa);
                     memb.setMmobile(mmo);
                     memb.setMuser(mus);
                     memb.setMpassw(mpa);
+                    memb.setMunitnum(muninum);
 
+                    databaseReference= FirebaseDatabase.getInstance().getReference().child(mwa).child(muninum).child("Member").child(mus);
 
                     final Query query=databaseReference.orderByChild("mname").equalTo(mus);
                     query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -111,7 +109,7 @@ public class Memregi extends AppCompatActivity {
                             }
                             else
                             {
-                                databaseReference=FirebaseDatabase.getInstance().getReference().child("Member").child(mus);
+                                databaseReference=FirebaseDatabase.getInstance().getReference().child(mwa).child(muninum).child("Member").child(mus);
                                 databaseReference.setValue(memb).addOnCompleteListener(new OnCompleteListener<Void>()
                                 {
                                     @Override
@@ -120,7 +118,6 @@ public class Memregi extends AppCompatActivity {
 
                                         Toast.makeText(getApplicationContext(),"Successfully registered Wait for the approval",Toast.LENGTH_SHORT).show();
 
-                                        e1.setText("");
                                         e2.setText("");
                                         e4.setText("");
                                         e5.setText("");

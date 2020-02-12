@@ -31,8 +31,9 @@
                     android:text="UnitNumber"
                     android:textSize="20dp"/>
 
-                <EditText  android:id="@+id/unitno"
-                    android:inputType="number"
+                <Spinner
+                    android:id="@+id/unitnumb"
+                    android:entries="@array/war"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"/>
             </TableRow>

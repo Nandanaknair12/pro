@@ -1,14 +1,17 @@
 <ScrollView android:layout_height="match_parent"
     android:layout_width="match_parent"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
     <LinearLayout android:layout_height="match_parent"
         android:layout_width="match_parent"
         android:background="@drawable/img2"
         android:orientation="vertical"
         xmlns:android="http://schemas.android.com/apk/res/android">
+
         <TableLayout android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:orientation="vertical">
+
             <ImageView
                 android:paddingTop="1dp"
                 android:layout_marginTop="1dp"
@@ -18,25 +21,28 @@
                 android:src="@drawable/imgg"/>
 
         </TableLayout>
+
         <TableLayout android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:stretchColumns="1"
+            android:layout_marginTop="60dp"
             android:orientation="vertical">
-
 
             <TableRow android:layout_height="wrap_content"
                 android:layout_width="match_parent">
                 <TextView
                     android:layout_marginTop="5dp" android:layout_height="wrap_content"
                     android:layout_width="150dp"
-                    android:text="UnitName"
+                    android:text="UnitNumber"
                     android:textSize="20dp"/>
 
-                <EditText
-                    android:id="@+id/munitnam"
+                <Spinner
+                    android:id="@+id/munitnum"
+                    android:entries="@array/war"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"/>
             </TableRow>
+
             <TableRow android:layout_height="wrap_content"
                 android:layout_width="match_parent">
                 <TextView android:layout_marginTop="2dp" android:layout_height="wrap_content"
@@ -51,6 +57,7 @@
                     android:layout_width="match_parent"/>
             </TableRow>  <TableRow android:layout_height="wrap_content"
             android:layout_width="match_parent">
+
             <TextView android:layout_height="wrap_content"
                 android:layout_width="150dp"
                 android:text="WardNumber"
@@ -62,6 +69,7 @@
                 android:layout_height="wrap_content"
                 android:layout_width="match_parent"/>
         </TableRow>
+
             <TableRow
                 android:layout_marginTop="10dp"
                 android:layout_height="wrap_content"
@@ -132,7 +140,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Sign in"/>
+
         </LinearLayout>
 
     </LinearLayout>
+
 </ScrollView>

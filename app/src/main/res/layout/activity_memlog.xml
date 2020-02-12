@@ -1,38 +1,52 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
     android:background="@drawable/img2"
-    tools:context=".Unitpresilog">
-
-    <EditText
-        android:id="@+id/musername"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="97dp"
-        android:ems="10"
-        android:hint="Username"
-        android:inputType="textPersonName"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.525"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.01" />
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="208dp"
         android:layout_height="219dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.034"
-        app:srcCompat="@drawable/imgg" />
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/imgg"/>
+
+    <Spinner
+        android:layout_height="40dp"
+        android:layout_width="290dp"
+        android:background="@drawable/textbox"
+        android:id="@+id/mward1"
+        android:layout_marginBottom="25dp"
+        android:entries="@array/war"/>
+
+    <Spinner
+        android:layout_height="40dp"
+        android:layout_width="290dp"
+        android:id="@+id/munit1"
+        android:entries="@array/war"
+        android:background="@drawable/textbox"
+        android:layout_marginBottom="25dp"/>
+
+    <EditText
+        android:id="@+id/musername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:textSize="24sp"/>
+
+    <EditText
+        android:id="@+id/mpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Password"
+        android:layout_marginTop="20dp"
+        android:inputType="textPassword"
+        android:textSize="24sp" />
+
 
     <Button
         android:id="@+id/mbtlogin"
@@ -40,13 +54,9 @@
         android:layout_height="66dp"
         android:background="@drawable/oval"
         android:text="Login"
+        android:layout_marginTop="15dp"
         android:textSize="24sp"
-        android:textStyle="normal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/musername"
-        app:layout_constraintVertical_bias="0.33" />
+        android:textStyle="normal"/>
 
     <Button
         android:id="@+id/mregi"
@@ -54,25 +64,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="No account?Create one."
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mbtlogin"
-        app:layout_constraintVertical_bias="0.13" />
+        android:textSize="18sp" />
 
-    <EditText
-        android:id="@+id/mpass"
-        android:layout_width="286dp"
-        android:layout_height="55dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/mbtlogin"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.528"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/musername"
-        app:layout_constraintVertical_bias="0.1" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
