@@ -11,7 +11,8 @@
         android:roundIcon="@drawable/oval"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".unitreport"></activity>
+        <activity android:name=".cdsseemembers"></activity>
+        <activity android:name=".unitreport" />
         <activity android:name=".unitexpenses" />
         <activity android:name=".unitmembers" />
         <activity android:name=".Acceptingmem" />

@@ -1,4 +1,4 @@
-<androidx.cardview.widget.CardView android:layout_height="match_parent"
+<androidx.cardview.widget.CardView android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:orientation="horizontal"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -12,18 +12,18 @@
 
         <EditText android:layout_height="40dp"
             android:layout_width="300dp"
-            android:text="Reports"
+            android:text="  Members  name"
             android:padding="6dp"
             android:background="@drawable/textbox"
             android:textSize="20dp"
             android:textAlignment="center"
             android:editable="false"
             android:layout_marginLeft="6dp"
-            android:id="@+id/cdsreport"/>
+            android:id="@+id/seememcds"/>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="280dp"
+            android:layout_height="300dp"
             android:orientation="vertical"
             android:layout_marginTop="2dp"
             android:layout_marginLeft="8dp"
@@ -31,24 +31,11 @@
             android:gravity="center">
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycle3"
                 android:layout_width="match_parent"
-                android:layout_height="297dp"
-                android:layout_marginTop="30dp"/>
+                android:layout_height="290dp"
+                android:id="@+id/recycle2"/>
 
         </LinearLayout>
-
-        <Button
-            android:id="@+id/unitreportprint"
-            android:background="@drawable/oval"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:textSize="15dp"
-            android:text="print"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="50dp"/>
-
-
 
 
     </LinearLayout>
