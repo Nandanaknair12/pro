@@ -32,11 +32,11 @@ public class Memlog extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_memlog);
+
         e1=(EditText)findViewById(R.id.musername);
         e2=(EditText)findViewById(R.id.mpass);
         b1=(Button)findViewById(R.id.mbtlogin);
         b2=(Button)findViewById(R.id.mregi);
-
 
         mem=new Memb();
 
@@ -44,8 +44,6 @@ public class Memlog extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                ward=s1.getSelectedItem().toString().trim();
-                unit=s2.getSelectedItem().toString().trim();
                 userna=e1.getText().toString().trim();
                 passna=e2.getText().toString().trim();
                 if(userna.isEmpty())
@@ -74,7 +72,9 @@ public class Memlog extends AppCompatActivity {
                                     {
                                         mem=snapshot.getValue(Memb.class);
                                         String pass=mem.mpassw;
-                                        if(pass.equals(passna)) {
+                                        if(pass.equals(passna))
+                                        {
+
                                             Toast.makeText(getApplicationContext(), "login success", Toast.LENGTH_SHORT).show();
 
                                             SharedPreferences.Editor editor=getSharedPreferences("Memlogin",MODE_PRIVATE).edit();

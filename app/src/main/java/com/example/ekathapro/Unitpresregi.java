@@ -120,23 +120,24 @@ public class Unitpresregi extends AppCompatActivity {
                                     unitpres.setUus(us);
                                     unitpres.setUpa(pa);
 
-                                    n=unitpres.getUno();
-                                    n1=unitpres.getUna();
-                                    p=unitpres.getUpl();
-                                    w=unitpres.getUwa();
-                                    m=unitpres.getUno();
-                                    u=unitpres.getUmo();
-                                    p1=unitpres.getUus();
-                                    p2=unitpres.getUpa();
 
                                     databaseReference=FirebaseDatabase.getInstance().getReference().child(wa).child(no);
-
-                                   // ref=FirebaseDatabase.getInstance().getReference().child("uno").child(no);
                                     databaseReference.setValue(unitpres).addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task)
                                         {
                                             Toast.makeText(getApplicationContext(), "Sucessfull", Toast.LENGTH_SHORT).show();
+
+                                            e2.setText("");
+                                            e3.setText("");
+                                            e5.setText("");
+                                            e6.setText("");
+                                            e7.setText("");
+                                            e8.setText("");
+
+                                            Intent intent=new Intent(getApplicationContext(),Unitpresilog.class);
+                                            startActivity(intent);
+
 
                                         }
                                     });

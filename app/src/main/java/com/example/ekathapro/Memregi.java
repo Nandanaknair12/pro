@@ -96,39 +96,58 @@ public class Memregi extends AppCompatActivity {
                     memb.setMunitnum(muninum);
 
                     databaseReference= FirebaseDatabase.getInstance().getReference().child(mwa).child(muninum).child("Member").child(mus);
-
+                    reference=FirebaseDatabase.getInstance().getReference().child(mwa).child(muninum);
                     final Query query=databaseReference.orderByChild("mname").equalTo(mus);
                     query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+                        public void onDataChange(@NonNull final DataSnapshot dataSnapshot1)
                         {
-                            if (dataSnapshot.exists())
-                            {
-                                e5.setError("user already exist");
-                                e5.requestFocus();
-                            }
-                            else
-                            {
-                                databaseReference=FirebaseDatabase.getInstance().getReference().child(mwa).child(muninum).child("Member").child(mus);
-                                databaseReference.setValue(memb).addOnCompleteListener(new OnCompleteListener<Void>()
+                            Query query1=reference.orderByChild("umo").getRef();
+                            query1.addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot)
                                 {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task)
+                                    if (dataSnapshot.exists())
                                     {
+                                        if (dataSnapshot1.exists())
+                                        {
+                                            e5.setError("user already exist");
+                                            e5.requestFocus();
+                                        }
+                                        else
+                                        {
+                                            databaseReference=FirebaseDatabase.getInstance().getReference().child(mwa).child(muninum).child("Member").child(mus);
+                                            databaseReference.setValue(memb).addOnCompleteListener(new OnCompleteListener<Void>()
+                                            {
+                                                @Override
+                                                public void onComplete(@NonNull Task<Void> task)
+                                                {
 
-                                        Toast.makeText(getApplicationContext(),"Successfully registered Wait for the approval",Toast.LENGTH_SHORT).show();
+                                                    Toast.makeText(getApplicationContext(),"Successfully registered Wait for the approval",Toast.LENGTH_SHORT).show();
 
-                                        e2.setText("");
-                                        e4.setText("");
-                                        e5.setText("");
-                                        e6.setText("");
-                                        e7.setText("");
+                                                    e2.setText("");
+                                                    e4.setText("");
+                                                    e5.setText("");
+                                                    e6.setText("");
+                                                    e7.setText("");
 
-                                        Intent ob=new Intent(getApplicationContext(),Memlog.class);
-                                        startActivity(ob);
+                                                    Intent ob=new Intent(getApplicationContext(),Memlog.class);
+                                                    startActivity(ob);
+                                                }
+                                            });
+                                        }
                                     }
-                                });
-                            }
+                                    else
+                                    {
+                                        Toast.makeText(Memregi.this, "No Unit President registerd", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                }
+                            });
 
                         }
 
