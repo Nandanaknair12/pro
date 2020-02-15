@@ -33,26 +33,36 @@ public class Acceptingpresi extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         list=new ArrayList<Unitpres>();
 
-        refee= FirebaseDatabase.getInstance().getReference().child("President");
-        refee.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                for (DataSnapshot studentDatasnapshot : dataSnapshot.getChildren())
-                {
-                    Unitpres unitpres = studentDatasnapshot.getValue(Unitpres.class);
-                   if(unitpres.status.equals(false))
-                   {
-                       list.add(unitpres);
-                   }
-                }
-                adapterpresiapproval = new Adapterpresiapproval(Acceptingpresi.this,list);
-                recyclerView.setAdapter(adapterpresiapproval);
-            }
+        for(int i=1;i<20;i++){
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(getApplicationContext(),"something wnt wrong",Toast.LENGTH_LONG).show();
-            }
-        });
+            refee= FirebaseDatabase.getInstance().getReference().child(String.valueOf(i));
+            refee.addValueEventListener(new ValueEventListener()
+            {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+                {
+                    if (dataSnapshot.exists())
+                    {
+                        for (DataSnapshot studentDatasnapshot : dataSnapshot.getChildren())
+                        {
+                            Unitpres unitpres = studentDatasnapshot.getValue(Unitpres.class);
+                            if(unitpres.status.equals(false))
+                            {
+                                list.add(unitpres);
+                            }
+                        }
+                        adapterpresiapproval = new Adapterpresiapproval(Acceptingpresi.this,list);
+                        recyclerView.setAdapter(adapterpresiapproval);
+                    }
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Toast.makeText(getApplicationContext(),"something wnt wrong",Toast.LENGTH_LONG).show();
+                }
+            });
+
+        }
     }
 }

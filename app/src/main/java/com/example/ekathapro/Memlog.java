@@ -26,6 +26,7 @@ public class Memlog extends AppCompatActivity {
     Spinner s1,s2;
     Memb mem;
     DatabaseReference refer;
+    int i,j;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +37,6 @@ public class Memlog extends AppCompatActivity {
         b1=(Button)findViewById(R.id.mbtlogin);
         b2=(Button)findViewById(R.id.mregi);
 
-        s1=(Spinner)findViewById(R.id.mward1);
-        s2=(Spinner)findViewById(R.id.munit1);
 
         mem=new Memb();
 
@@ -61,40 +60,45 @@ public class Memlog extends AppCompatActivity {
                 }
                 else
                 {
+                    for (i=1;i<20;i++)
+                    {
+                        for (j=1;j<20;j++)
+                        {
+                            refer= FirebaseDatabase.getInstance().getReference().child(String.valueOf(i)).child(String.valueOf(j)).child("Member");
 
-                    refer= FirebaseDatabase.getInstance().getReference().child(ward).child(unit).child("Member");
+                            Query query=refer.orderByChild("mmobile").equalTo(userna);
+                            query.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                    for(DataSnapshot snapshot:dataSnapshot.getChildren())
+                                    {
+                                        mem=snapshot.getValue(Memb.class);
+                                        String pass=mem.mpassw;
+                                        if(pass.equals(passna)) {
+                                            Toast.makeText(getApplicationContext(), "login success", Toast.LENGTH_SHORT).show();
 
-                    Query query=refer.orderByChild("muser").equalTo(userna);
-                    query.addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                            for(DataSnapshot snapshot:dataSnapshot.getChildren())
-                            {
-                                mem=snapshot.getValue(Memb.class);
-                                String pass=mem.mpassw;
-                                if(pass.equals(passna)) {
-                                    Toast.makeText(getApplicationContext(), "login success", Toast.LENGTH_SHORT).show();
+                                            SharedPreferences.Editor editor=getSharedPreferences("Memlogin",MODE_PRIVATE).edit();
+                                            editor.putString("member",userna);
+                                            editor.commit();
 
-                                    SharedPreferences.Editor editor=getSharedPreferences("Memlogin",MODE_PRIVATE).edit();
-                                    editor.putString("member",userna);
-                                    editor.commit();
+                                            Intent inte = new Intent(getApplicationContext(), memlogged.class);
+                                            startActivity(inte);
 
-                                    Intent inte = new Intent(getApplicationContext(), memlogged.class);
-                                    startActivity(inte);
+                                        }
+                                        else
+                                        {
+                                            Toast.makeText(getApplicationContext(), "Incorrect password or username", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError databaseError) {
 
                                 }
-                                else
-                                {
-                                    Toast.makeText(getApplicationContext(), "Incorrect password or username", Toast.LENGTH_SHORT).show();
-                                }
-                            }
+                            });
                         }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });
+                    }
                 }
             }
         });

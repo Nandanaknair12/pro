@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class cdsseemembers extends AppCompatActivity {
+public class Attendence extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cdsseemembers);
+        setContentView(R.layout.activity_attendence);
     }
 }
