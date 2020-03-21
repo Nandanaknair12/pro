@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class Cdshome extends AppCompatActivity {
-     Button b1,b2,b3,b4,b5;
+    Button b1,b2,b3,b4,b5,b6;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,7 +19,15 @@ public class Cdshome extends AppCompatActivity {
         b2=(Button)findViewById(R.id.unitmembers);
         b3=(Button)findViewById(R.id.unitexpense);
         b4=(Button)findViewById(R.id.unitreport);
+        b6=(Button)findViewById(R.id.adduppr);
         b5=(Button)findViewById(R.id.logout3);
+        b6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent ob=new Intent(getApplicationContext(),Updatedeletepresi.class);
+                startActivity(ob);
+            }
+        });
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override

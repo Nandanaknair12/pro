@@ -35,9 +35,9 @@
             android:id="@+id/musername"
             android:layout_width="300dp"
             android:layout_height="match_parent"
-            android:hint="Mobile  number"
+            android:hint="Username"
             android:textSize="24sp"
-            android:inputType="number"/>
+            android:inputType="text"/>
 
 
         <EditText

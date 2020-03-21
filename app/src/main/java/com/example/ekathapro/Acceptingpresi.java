@@ -17,7 +17,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Acceptingpresi extends AppCompatActivity {
+public class  Acceptingpresi extends AppCompatActivity {
     DatabaseReference refee;
     RecyclerView recyclerView;
     Adapterpresiapproval adapterpresiapproval;
@@ -43,6 +43,7 @@ public class Acceptingpresi extends AppCompatActivity {
                 {
                     if (dataSnapshot.exists())
                     {
+
                         for (DataSnapshot studentDatasnapshot : dataSnapshot.getChildren())
                         {
                             Unitpres unitpres = studentDatasnapshot.getValue(Unitpres.class);

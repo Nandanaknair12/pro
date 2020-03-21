@@ -98,76 +98,58 @@ public class Unitpresregi extends AppCompatActivity {
                     e8.requestFocus();
                 }
                 else {
-                    databaseReference=FirebaseDatabase.getInstance().getReference().child(wa).child(no);
+                    databaseReference=FirebaseDatabase.getInstance().getReference().child(wa);
 
                     final Query query=databaseReference.orderByChild("uno").equalTo(no);
-                        query.addListenerForSingleValueEvent(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                ref=databaseReference.orderByChild("uno").equalTo(no).getRef();
-
-                                if (dataSnapshot.exists())
-                                {
-                                    Toast.makeText(getApplicationContext(),"unit already Registered Try Sign in",Toast.LENGTH_LONG).show();
-                                }
-                                else
-                                {
-                                    unitpres.setUno(no);
-                                    unitpres.setUna(na);
-                                    unitpres.setUpl(pl);
-                                    unitpres.setUwa(wa);
-                                    unitpres.setUmo(mo);
-                                    unitpres.setUus(us);
-                                    unitpres.setUpa(pa);
-
-
-                                    databaseReference=FirebaseDatabase.getInstance().getReference().child(wa).child(no);
-                                    databaseReference.setValue(unitpres).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task)
-                                        {
-                                            Toast.makeText(getApplicationContext(), "Sucessfull", Toast.LENGTH_SHORT).show();
-
-                                            e2.setText("");
-                                            e3.setText("");
-                                            e5.setText("");
-                                            e6.setText("");
-                                            e7.setText("");
-                                            e8.setText("");
-
-                                            Intent intent=new Intent(getApplicationContext(),Unitpresilog.class);
-                                            startActivity(intent);
-
-
-                                        }
-                                    });
-
-                                }
-                            }
-
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                            }
-                        });
-
-
-
-                    /*databaseReference.push().setValue(unitpres).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    query.addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
-                        public void onComplete(@NonNull Task<Void> task) {
-                            Toast.makeText(getApplicationContext(),"success"+n+n1+p+w+m+u+p1+p2,Toast.LENGTH_SHORT).show();
-                            Intent ob=new Intent(getApplicationContext(),Presiiafterregi.class);
-                            startActivity(ob);
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                            e2.setText("");
-                            e3.setText("");
-                            e5.setText("");
-                            e6.setText("");
-                            e7.setText("");
-                            e8.setText("");
+                            if (dataSnapshot.exists())
+                            {
+                                Toast.makeText(getApplicationContext(),"unit already Registered Try Sign in",Toast.LENGTH_LONG).show();
+                            }
+                            else
+                            {
+                                ref=databaseReference.orderByChild("uno").equalTo(no).getRef();
+                                unitpres.setUno(no);
+                                unitpres.setUna(na);
+                                unitpres.setUpl(pl);
+                                unitpres.setUwa(wa);
+                                unitpres.setUmo(mo);
+                                unitpres.setUus(us);
+                                unitpres.setUpa(pa);
+
+
+                                databaseReference=FirebaseDatabase.getInstance().getReference().child(wa).child(no);
+                                databaseReference.setValue(unitpres).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task)
+                                    {
+                                        Toast.makeText(getApplicationContext(), "Sucessfull", Toast.LENGTH_SHORT).show();
+
+                                        e2.setText("");
+                                        e3.setText("");
+                                        e5.setText("");
+                                        e6.setText("");
+                                        e7.setText("");
+                                        e8.setText("");
+
+                                        Intent intent=new Intent(getApplicationContext(),Presiiafterregi.class);
+                                        startActivity(intent);
+
+
+                                    }
+                                });
+
+                            }
                         }
-                    });*/
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
 
                 }
 

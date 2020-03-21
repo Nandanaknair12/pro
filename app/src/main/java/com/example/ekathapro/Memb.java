@@ -2,7 +2,7 @@ package com.example.ekathapro;
 
 public class Memb {
     public String mname,mplace,mward,mmobile,muser,mpassw,munitnum;
-    boolean status;
+    Boolean status;
 
 
     public Memb()

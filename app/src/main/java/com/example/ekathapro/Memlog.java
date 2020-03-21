@@ -64,7 +64,7 @@ public class Memlog extends AppCompatActivity {
                         {
                             refer= FirebaseDatabase.getInstance().getReference().child(String.valueOf(i)).child(String.valueOf(j)).child("Member");
 
-                            Query query=refer.orderByChild("mmobile").equalTo(userna);
+                            Query query=refer.orderByChild("muser").equalTo(userna);
                             query.addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {

@@ -28,11 +28,13 @@ public class Adapterpresiapproval extends RecyclerView.Adapter<Adapterpresiappro
     Context context;
     DatabaseReference reference;
 
-    Adapterpresiapproval(Context context, ArrayList<Unitpres> itemList)
+    public Adapterpresiapproval(Context context, ArrayList<Unitpres> itemList)
     {
         this.context = context;
         unitpres = itemList;
     }
+
+
 
     @NonNull
     @Override
@@ -53,7 +55,7 @@ public class Adapterpresiapproval extends RecyclerView.Adapter<Adapterpresiappro
         holder.t5.setText(unitpres.get(position).getUwa());
         holder.t6.setText(unitpres.get(position).getUmo());
 
-        reference= FirebaseDatabase.getInstance().getReference().child("President");
+        reference= FirebaseDatabase.getInstance().getReference().child(unitpres.get(position).getUwa());
 
 
         holder.button.setOnClickListener(new View.OnClickListener()
